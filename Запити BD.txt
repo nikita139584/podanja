@@ -1,0 +1,61 @@
+1
+CREATE VIEW lalala AS
+SELECT 
+    p.name  AS [товар],
+    c.name  AS [категорія],
+    s.name  AS [постачальник],
+    co.name AS [країна_виробника],
+    d.date_of_delivery AS [дата_поставки],
+    p.price AS [ціна_товару]
+FROM Product p
+JOIN Category c   ON p.id_category = c.id
+JOIN Producer pr  ON p.id_producer = pr.id
+JOIN Delivery d   ON d.id_product = p.id
+JOIN Supplier s   ON s.id = d.id_supplier
+JOIN Address a    ON a.id = pr.id_address
+JOIN City ct      ON ct.id = a.id_city
+JOIN Region r     ON r.id = ct.id_region
+JOIN Country co   ON co.id = r.id_country
+WHERE c.id = 1;
+2
+CREATE VIEW lalala AS
+SELECT 
+    p.name  AS [товар],
+    c.name  AS [категорія],
+    s.name  AS [постачальник],
+    co.name AS [країна_виробника],
+    d.date_of_delivery AS [дата_поставки],
+    p.price AS [ціна_товару]
+FROM Product p
+JOIN Category c   ON p.id_category = c.id
+JOIN Producer pr  ON p.id_producer = pr.id
+JOIN Delivery d   ON d.id_product = p.id
+JOIN Supplier s   ON s.id = d.id_supplier
+JOIN Address a    ON a.id = pr.id_address
+JOIN City ct      ON ct.id = a.id_city
+JOIN Region r     ON r.id = ct.id_region
+JOIN Country co   ON co.id = r.id_country
+WHERE c.id = 13
+AND d.id_product < DATEADD(MONTH, -3, GETDATE())
+ORDER BY p.price DESC;
+4
+CREATE VIEW lalala AS
+SELECT 
+    p.name  AS [товар],
+    c.name  AS [категорія],
+    s.name  AS [постачальник],
+    co.name AS [країна_виробника],
+    d.date_of_delivery AS [дата_поставки],
+    p.price AS [ціна_товару]
+FROM Product p
+JOIN Category c   ON p.id_category = c.id
+JOIN Producer pr  ON p.id_producer = pr.id
+JOIN Delivery d   ON d.id_product = p.id
+JOIN Supplier s   ON s.id = d.id_supplier
+JOIN Address a    ON a.id = pr.id_address
+JOIN City ct      ON ct.id = a.id_city
+JOIN Region r     ON r.id = ct.id_region
+JOIN Country co   ON co.id = r.id_country
+WHERE c.id = 14
+AND d.id_product < DATEADD(MONTH, -3, GETDATE())
+ORDER BY p.price DESC;
